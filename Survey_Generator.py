@@ -26,6 +26,35 @@ st.subheader('Question 3')
 q3_config = config['question3']
 title_question_3, body_question_3, column_1_question_3, column_2_question_3, first_value_question3, min_value_question3, max_value_question3, step_size_question3, last_value_question3, title_barchart_question_3, effect_size_question3 = question(q3_config)
 
+st.subheader('Question 4')
+q4_config = config['question4']
+title_question_4, body_question_4, column_1_question_4, column_2_question_4, first_value_question4, min_value_question4, max_value_question4, step_size_question4, last_value_question4, title_barchart_question_4, effect_size_question4 = question(q4_config)
+
+st.subheader('Question 5')
+q5_config = config['question5']
+title_question_5, body_question_5, column_1_question_5, column_2_question_5, first_value_question5, min_value_question5, max_value_question5, step_size_question5, last_value_question5, title_barchart_question_5, effect_size_question5 = question(q5_config)
+
+st.subheader('Question 6')
+q6_config = config['question6']
+title_question_6, body_question_6, column_1_question_6, column_2_question_6, first_value_question6, min_value_question6, max_value_question6, step_size_question6, last_value_question6, title_barchart_question_6, effect_size_question6 = question(q6_config)
+
+st.subheader('Question 7')
+q7_config = config['question7']
+title_question_7, body_question_7, column_1_question_7, column_2_question_7, first_value_question7, min_value_question7, max_value_question7, step_size_question7, last_value_question7, title_barchart_question_7, effect_size_question7 = question(q7_config)
+
+st.subheader('Question 8')
+q8_config = config['question8']
+title_question_8, body_question_8, column_1_question_8, column_2_question_8, first_value_question8, min_value_question8, max_value_question8, step_size_question8, last_value_question8, title_barchart_question_8, effect_size_question8 = question(q8_config)
+
+st.subheader('Question 9')
+q9_config = config['question9']
+title_question_9, body_question_9, column_1_question_9, column_2_question_9, first_value_question9, min_value_question9, max_value_question9, step_size_question9, last_value_question9, title_barchart_question_9, effect_size_question9 = question(q9_config)
+
+st.subheader('Question 10')
+q10_config = config['question10']
+title_question_10, body_question_10, column_1_question_10, column_2_question_10, first_value_question10, min_value_question10, max_value_question10, step_size_question10, last_value_question10, title_barchart_question_10, effect_size_question10 = question(q10_config)
+
+
 github_branch_name = st.text_input('Choose how to name the Github branch for your project', key = 'github_branch')
 
 #Submission 
@@ -38,6 +67,7 @@ if st.session_state['submit']:
     
     new_app_generation(survey_title, 
                        survey_description, 
+
                        title_question_1,
                         body_question_1, 
                         column_1_question_1,
@@ -49,6 +79,7 @@ if st.session_state['submit']:
                         last_value_question1,
                         title_barchart_question_1,
                         effect_size_question1,
+
                         title_question_2,
                         body_question_2,
                         column_1_question_2,
@@ -60,6 +91,7 @@ if st.session_state['submit']:
                         last_value_question2,         
                         title_barchart_question_2,
                         effect_size_question2,
+
                         title_question_3,
                         body_question_3,
                         column_1_question_3,
@@ -70,7 +102,91 @@ if st.session_state['submit']:
                         step_size_question3,
                         last_value_question3, 
                         title_barchart_question_3,
-                        effect_size_question3)
+                        effect_size_question3,
+                       
+                        title_question_4,
+                        body_question_4, 
+                        column_1_question_4,
+                        column_2_question_4,
+                        first_value_question4,
+                        min_value_question4,
+                        max_value_question4,
+                        step_size_question4,
+                        last_value_question4,
+                        title_barchart_question_4,
+                        effect_size_question4,
+                        
+                        title_question_5,
+                        body_question_5, 
+                        column_1_question_5,
+                        column_2_question_5,
+                        first_value_question5,
+                        min_value_question5,
+                        max_value_question5,
+                        step_size_question5,
+                        last_value_question5,
+                        title_barchart_question_5,
+                        effect_size_question5,
+                         
+                        title_question_6,
+                        body_question_6, 
+                        column_1_question_6,
+                        column_2_question_6,
+                        first_value_question6,
+                        min_value_question6,
+                        max_value_question6,
+                        step_size_question6,
+                        last_value_question6,
+                        title_barchart_question_6,
+                        effect_size_question6,
+                        
+                        title_question_7,
+                        body_question_7, 
+                        column_1_question_7,
+                        column_2_question_7,
+                        first_value_question7,
+                        min_value_question7,
+                        max_value_question7,
+                        step_size_question7,
+                        last_value_question7,
+                        title_barchart_question_7,
+                        effect_size_question7,
+                                             
+                        title_question_8,
+                        body_question_8, 
+                        column_1_question_8,
+                        column_2_question_8,
+                        first_value_question8,
+                        min_value_question8,
+                        max_value_question8,
+                        step_size_question8,
+                        last_value_question8,
+                        title_barchart_question_8,
+                        effect_size_question8,
+                        
+                        title_question_9,
+                        body_question_9, 
+                        column_1_question_9,
+                        column_2_question_9,
+                        first_value_question9,
+                        min_value_question9,
+                        max_value_question9,
+                        step_size_question9,
+                        last_value_question9,
+                        title_barchart_question_9,
+                        effect_size_question9,
+                        
+                        title_question_10,
+                        body_question_10, 
+                        column_1_question_10,
+                        column_2_question_10,
+                        first_value_question10,
+                        min_value_question10,
+                        max_value_question10,
+                        step_size_question10,
+                        last_value_question10,
+                        title_barchart_question_10,
+                        effect_size_question10)
     
     st.success("Thank you for completing the Academic Prior Beliefs Elicitation Survey Generator!")
     st.write('''Now please head to https://streamlit.io/ and access with the following credentials: \\
