@@ -54,8 +54,8 @@ st.subheader('Question 10')
 q10_config = config['question10']
 title_question_10, body_question_10, column_1_question_10, column_2_question_10, first_value_question10, min_value_question10, max_value_question10, step_size_question10, last_value_question10, title_barchart_question_10, effect_size_question10 = question(q10_config)
 
-
-github_branch_name = st.text_input('Choose how to name the Github branch for your project', key = 'github_branch')
+st.subheader('Data Saving')
+github_branch_name, google_sheet_name = github_google_sheet_names()
 
 #Submission 
 
@@ -63,8 +63,8 @@ submit = st.button('Submit', on_click= submit)
 
 if st.session_state['submit']:
 
-    #new_app_generation(survey_title, survey_description, title_question_1, subtitle_question_1, column_1_question_1, column_2_question_1, min_value_graph_1, max_value_graph_1, step_size_graph_1, title_x_axis_question_1, title_y_axis_question_1, title_barchart_question_1)
-    
+    google_sheet_creation(google_sheet_name)
+
     new_app_generation(survey_title, 
                        survey_description, 
 
@@ -186,7 +186,8 @@ if st.session_state['submit']:
                         step_size_question10,
                         last_value_question10,
                         title_barchart_question_10,
-                        effect_size_question10)
+                        effect_size_question10,
+                        github_branch_name)
     
     st.success("Thank you for completing the Academic Prior Beliefs Elicitation Survey Generator!")
     st.write('''Now please head to https://streamlit.io/ and access with the following credentials: \\

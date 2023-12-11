@@ -3,6 +3,10 @@ from constants import *
 from tokens import *
 import streamlit as st
 import json
+from google.oauth2 import service_account
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+from requests_oauthlib import OAuth2Session
 
 def introduction():
     st.title(TITLE)
@@ -40,7 +44,8 @@ def initialize_session_state():
             'Min Value Question 3': [],
             'Max Value Question 3': [],
             'Step Size Question 3': [], 
-            'Github Branch': []
+            'Github Branch': [],
+            'Google Sheet': []
         }
     
 def safe_var(key):
@@ -87,6 +92,13 @@ def question(jsonfile):
     )
     
     return title_question, body_question, column_1, column_2, first_value, min_value, max_value, step_size, last_value, title_barchart, effect_size
+
+def github_google_sheet_names():
+
+    github_branch_name = st.text_input('Choose how to name the Github branch for your project', key = 'github_branch')
+    google_sheet_name = st.text_input('Choose how to name the Google sheet where your data will be saved', key = 'google_sheet_name')
+
+    return github_branch_name, google_sheet_name
 
 def submit(): #survey_title, survey_description, title_question_1, subtitle_question_1, column_1_question_1, column_2_question_1, min_value_graph_1, max_value_graph_1, step_size_graph_1):
     st.session_state['submit'] = True
@@ -208,10 +220,13 @@ def new_app_generation(survey_title,
                         step_size_question10,
                         last_value_question10,
                         title_barchart_question_10,
-                        effect_size_question10):
+                        effect_size_question10,
+
+                        github_branch_name
+                        ):
     
 
-    branch_name = "Second_Test"
+    branch_name = github_branch_name
     base_branch = "main"  # Replace with the branch you want to base the new branch on
 
     # Authenticate with GitHub using your personal access token
@@ -393,3 +408,24 @@ def new_app_generation(survey_title,
         content=json_string,
         branch=branch_name
     )
+
+def google_sheet_creation(sheet_name): 
+    scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
+
+    #creds = ServiceAccountCredentials.from_json_keyfile_name('prior-beliefs-elicitation-keys.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(secrets_to_json())
+    client = gspread.authorize(creds)
+    sheet = client.create(sheet_name)
+
+    # Load the Google Sheet
+    #sheet = client.open("Test").sheet1
+
+    #sheet_update = sheet.update([new_bins_df.columns.values.tolist()])
+    #sheet = sheet.append_rows([df.values.tolist()[1]])
+    #st.success('Data has been saved successfully.')
+    
+    #Navigate to the folder in Google Drive. Copy the Folder ID found in the URL. This is everything that comes after “folder/” in the URL.
+    #backup_sheet = client.create(f'Backup_{datetime.now()}_{data[USER_FULL_NAME]}', folder_id='1Pjz6JAf9MaVe_eSaAFpDhLFr4GMPj2jX').sheet1
+    #backup_sheet = backup_sheet.append_rows(concatenated_df.iloc[:2].values.tolist())
+    #backup_sheet.share('sara.gironi97@gmail.com', perm_type = 'user', role = 'writer')
+
