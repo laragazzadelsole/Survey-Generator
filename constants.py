@@ -4,7 +4,11 @@ TITLE = "ACADEMIC PRIOR BELIEFS ELICITATION SURVEY GENERATOR"
 
 DESCRIPTION = ''' This document is intended for researchers use only. \\
 It allows to create a personalized survey to elicit prior beliefs for impact evaluation. \\
-    Please carefully fill in all the empty fields. Be aware that once you click submit it's not possible to make any further changes.'''
+    Please carefully fill in the empty fields of the questions you need. \\
+          The survey includes up to 10 questions, but feel free to use a fewer number if it better suits your needs. \\
+            Just scroll down to the Data Saving section and click submit when you are done. \\
+          Be aware that once you click submit it's not possible to make any further changes, as it directly creates a json file with your answers on a Github branch. \\
+          If you want to modify things please refresh the page, fill in the survey again and choose a different name for the Github branch.'''
 
 def title_and_introduction():
     st.subheader("Title and Introduction")
@@ -28,6 +32,4 @@ def secrets_to_json():
         "auth_provider_x509_cert_url": st.secrets["auth_provider_x509_cert_url"],
         "client_x509_cert_url": st.secrets["client_x509_cert_url"],
         "universe_domain": st.secrets["universe_domain"]
-        #"github_token": st.secrets["github_token"],
-        #"github_repo": st.secrets["github_repo"]
     }

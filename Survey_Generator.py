@@ -190,7 +190,8 @@ if st.session_state['submit']:
                         github_branch_name)
     
     st.success("Thank you for completing the Academic Prior Beliefs Elicitation Survey Generator!")
-    st.write('''Now please head to https://streamlit.io/ and access with the following credentials: \\
+    '''
+    st.write(Now please head to https://streamlit.io/ and access with the following credentials: \\
              Username: 'Username' \\
              Password: 'Password' \\
              Add your app clicking on "New App" and inserting the following information: \\
@@ -199,7 +200,9 @@ if st.session_state['submit']:
              Main file path: \\
              Click "Deploy!". \\
              Now your survey is ready to be shared!
-             ''')
+             )
+    '''
+    
 
 
 
