@@ -12,9 +12,9 @@ It allows to create a personalized survey to elicit prior beliefs for impact eva
 
 def title_and_introduction():
     st.subheader("Title and Introduction")
-    survey_title = st.text_input('Write the title of your Survey here:', key = 'survey_title')
+    survey_title = st.text_input('Please, write here the title of your survey here:', key = 'survey_title')
 
-    survey_description = st.text_input('Write the description of the survey, the scope of your research and any information that you think might be usefull for the users that will fill in the survey:', key = 'survey_description')
+    survey_description = st.text_input(f"Please, write here the description of your survey, the scope of your research and any information that you think might be usefull for the users that will fill in the survey. If you want to go to a new line insert: \\n. It will be renderd as a new line by the json file:", key = 'survey_description')
     survey_title, survey_description = (st.session_state['survey_title'], st.session_state['survey_description'])
 
     return survey_title, survey_description

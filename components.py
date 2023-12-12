@@ -53,27 +53,27 @@ def safe_var(key):
     
 
 def question(jsonfile):
-    st.text_input('Write here the title of your question:', key = jsonfile['key_title'])
+    st.text_input('Please, write here the title of your question:', key = jsonfile['key_title'])
 
-    st.text_input('Write here the body of your question explaining it clearly:', key = jsonfile['key_body_question'])
+    st.text_input('Please, write here the body of your question explaining it clearly:', key = jsonfile['key_body_question'])
 
-    st.text_input('Write here the name of the first table column:', key = jsonfile['key_column_1'])
+    st.text_input('Please, write here the name of the first table column:', key = jsonfile['key_column_1'])
 
-    st.text_input('Write here the name of the second table column:', key = jsonfile['key_column_2'])
+    st.text_input('Please, write here the name of the second table column:', key = jsonfile['key_column_2'])
 
-    st.text_input('Insert the first value of the x-axis:', key = jsonfile['key_first_value'])
+    st.text_input('Please, insert the first value of the x-axis:', key = jsonfile['key_first_value'])
 
-    st.number_input('Insert the minimum value of the x-axis:', key = jsonfile['key_min_value'])
+    st.number_input('Please, insert the minimum value of the x-axis:', key = jsonfile['key_min_value'])
 
-    st.number_input('Insert the maximum value of the x-axis:', key = jsonfile['key_max_value'])
+    st.number_input('Please, insert the maximum value of the x-axis:', key = jsonfile['key_max_value'])
 
-    st.number_input('Insert the step size of the x-axis:', key = jsonfile['key_step_size'])
+    st.number_input('Please, insert the step size of the x-axis:', key = jsonfile['key_step_size'])
 
-    st.text_input('Insert the last value of the x-axis:', key = jsonfile['key_last_value'])
+    st.text_input('Please, insert the last value of the x-axis:', key = jsonfile['key_last_value'])
 
-    st.text_input('Write here the title of the bar chart:', key = jsonfile['key_title_barchart'])
+    st.text_input('Please, write here the title of the bar chart:', key = jsonfile['key_title_barchart'])
 
-    st.text_input('Write here the text of the question on the cost-benefit ratio the user would want to see in order to extend the Program:', key = jsonfile['key_effect_size'])
+    st.text_input('Please, write here the text of the question on the cost-benefit ratio the user would want to see in order to extend the Program:', key = jsonfile['key_effect_size'])
     
     title_question, body_question, column_1, column_2, first_value, min_value, max_value, step_size, last_value, title_barchart, effect_size= (
 
