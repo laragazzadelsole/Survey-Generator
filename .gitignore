@@ -1,5 +1,7 @@
 venv_test
 
+.streamlit
+
 secrets.toml
 
 keys.json

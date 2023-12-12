@@ -53,7 +53,7 @@ def safe_var(key):
     
 
 def question(jsonfile):
-    st.text_input('Write here the title of your first question:', key = jsonfile['key_title'])
+    st.text_input('Write here the title of your question:', key = jsonfile['key_title'])
 
     st.text_input('Write here the body of your question explaining it clearly, adding examples.', key = jsonfile['key_body_question'])
 
@@ -228,17 +228,31 @@ def new_app_generation(survey_title,
     branch_name = github_branch_name
     base_branch = "main"  # Replace with the branch you want to base the new branch on
 
+    token = st.secrets.github_api.github_token
+    
     # Authenticate with GitHub using your personal access token
-    g = Github("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" )
+    g = Github(token)
+    repo_name =  st.secrets.github_api.github_repo
 
     # Get the repository
-    repo = g.get_repo("laragazzadelsole/Test-Survey")
+    repo = g.get_repo(repo_name)
 
     # Create a new branch
-    repo.create_git_ref(ref=f"refs/heads/{branch_name}", sha=repo.get_branch(base_branch).commit.sha)
+   # repo.create_git_ref(ref=f"refs/heads/{branch_name}", sha=repo.get_branch(base_branch).commit.sha)
+
+    # Get the branch where you want to commit the new file
+   # branch = repo.get_branch(branch_name)
+
+
+    # Get the latest commit on the base branch
+    base_branch_commit_sha = repo.get_branch(base_branch).commit.sha
+
+    # Create a new branch
+    repo.create_git_ref(ref=f"refs/heads/{branch_name}", sha=base_branch_commit_sha)
 
     # Get the branch where you want to commit the new file
     branch = repo.get_branch(branch_name)
+
 
     # Create a new json file in the branch
     contents = {

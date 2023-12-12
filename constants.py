@@ -28,4 +28,6 @@ def secrets_to_json():
         "auth_provider_x509_cert_url": st.secrets["auth_provider_x509_cert_url"],
         "client_x509_cert_url": st.secrets["client_x509_cert_url"],
         "universe_domain": st.secrets["universe_domain"]
+        #"github_token": st.secrets["github_token"],
+        #"github_repo": st.secrets["github_repo"]
     }
